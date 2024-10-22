@@ -2,21 +2,34 @@ package com.pluralsight;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        Reservation r = new Reservation("blue",4,true);
+        /*Reservation r = new Reservation("blue",4,true);
         r.setRoomType("king");
         //r.setIsWeekend(false);
 
         System.out.printf("\n%s %s is: $%.2f","The base price per night for",r.getRoomType(), r.getPrice());
-        System.out.printf("\n%s: $%.2f","The total for the reservation is",r.getReservationTotal());
+        System.out.printf("\n%s: $%.2f","The total for the reservation is",r.getReservationTotal());*/
 
-        Employee e = new Employee("Christian","Cleaning",20,39);
-        /*System.out.printf("\n%s $%.2f an hour","The employee gets paid",e.getPayRate());
-        System.out.printf("\n%s: $%.2f for %.2f hours worked.","The total pay is",e.getTotalPay(),e.getHoursWorked());*/
+        Room room = new Room(2,120,false,false);
+        room.checkIn();
+        //room.checkIn();
+        room.checkOut();
 
-        Employee e2 = new Employee("Bill","Cleaning",20,49);
-        /*System.out.printf("\n%s $%.2f an hour","The employee gets paid",e2.getPayRate());
-        System.out.printf("\n%s: $%.2f for %.2f hours worked.","The total pay is",e2.getTotalPay(),e2.getHoursWorked());*/
-        System.out.println();
+
+       Employee e = new Employee("Christian","Cleaning",20);
+        e.punchTimeCard(2,12); //10 hours added
+        e.punchTimeCard(2,12); //10 hours added
+        e.punchTimeCard(2,12); //10 hours added
+        e.punchTimeCard(2,13); //10 hours added
+
+
+
+        Employee e2 = new Employee("Bill","Cleaning",20);
+        e2.punchTimeCard(2,10);
+        e2.punchTimeCard(2,10);
+        e2.punchTimeCard(2,10);
+        e2.punchTimeCard(2,10);
+
+
         displayEmployee(e2);
         displayEmployee(e);
 

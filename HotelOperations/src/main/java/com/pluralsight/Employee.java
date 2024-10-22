@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class Employee {
@@ -10,12 +11,12 @@ public class Employee {
     private double payRate;
     private double hoursWorked;
 
-    public Employee( String name, String department, double payRate, double hoursWorked) {
+    public Employee( String name, String department, double payRate) {
         this.employeeId = idCounter++;
         this.name = name;
         this.department = department;
         this.payRate = payRate;
-        this.hoursWorked = hoursWorked;
+       // this.hoursWorked = hoursWorked;
     }
 
     public int getEmployeeId() {
@@ -46,12 +47,16 @@ public class Employee {
         this.payRate = payRate;
     }
 
-    public void setHoursWorked(double hoursWorked) {
+    private void setHoursWorked(double hoursWorked) {
         this.hoursWorked = hoursWorked;
     }
 
     public double getHoursWorked() {
         return hoursWorked;
+    }
+
+    public double punchTimeCard(double startTime, double endTime){
+        return hoursWorked+=(endTime-startTime);
     }
 
     public double getNormalHours(){

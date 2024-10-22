@@ -32,4 +32,28 @@ public class Room {
     public boolean isAvailable(){
         return (!isDirty() && !isOccupied());
     }
+
+    public void checkIn(){
+        if(isAvailable()) {
+            occupied = true;
+            dirty = true;
+            System.out.println("Successfully checked in!");
+        }
+        else if(dirty){
+            System.out.println("Room has yet to be prepared");
+        }
+        else
+            System.out.println("Room is occupied");
+    }
+
+    private void cleanRoom(){
+        System.out.println("Cleaning room..");
+        dirty = false;
+        occupied = false;
+    }
+
+    public void checkOut(){
+        System.out.println("Checked out");
+        cleanRoom();
+    }
 }
