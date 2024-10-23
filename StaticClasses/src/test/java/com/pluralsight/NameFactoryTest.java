@@ -20,36 +20,12 @@ class NameFactoryTest {
         String mName = "B";
         String lName = "Johnson";
         String suffix = "PhD";
-        String expected = String.format("%s %s %s %s, %s",prefix,fName,mName,lName,suffix);
-        assertEquals(expected,NameFactory.format(prefix,fName,mName,lName,suffix));
-    }
-
-    @Test
-    public void format_shouldFormat_withFullName(){
-        String prefix = "Dr.";
-        String fName = "Mel";
-        String mName = "B";
-        String lName = "Johnson";
-        String suffix = "PhD";
-        String expected = String.format("%s %s %s %s, %s",prefix,fName,mName,lName,suffix);
-        assertEquals(expected,NameFactory.format(String.format("%s %s %s %s %s",prefix,fName,mName,lName,suffix)));
-    }
-
-
-
-    @Test
-    public void format_shouldFormat_allOptionalFields2(){
-        String prefix = "Dr.";
-        String fName = "Mel";
-        String mName = "B";
-        String lName = "Johnson";
-        String suffix = "PhD";
         String expectedValue = "Dr. Mel B Johnson, PhD";
         assertEquals(expectedValue,NameFactory.format(prefix,fName,mName,lName,suffix));
     }
 
     @Test
-    public void format_shouldFormat_withFullName2(){
+    public void format_shouldFormat_withFullName(){
         String fullName = "Matt Christenson";
         String expectedValue = "Matt Christenson";
 
@@ -58,28 +34,22 @@ class NameFactoryTest {
 
     @Test
     public void format_shouldFormat_withPrefix(){
-        String prefix = "Dr.";
-        String fName = "Mel";
-        String lName = "Johnson";
-        String expected = String.format("%s %s %s",prefix,fName,lName);
-        assertEquals(expected,NameFactory.format(String.format("%s %s %s",prefix,fName,lName)));
+        String fullName = "Dr. Mel B Johnson";
+        String expected = "Dr. Mel B Johnson";
+        assertEquals(expected,NameFactory.format(fullName));
     }
 
     @Test
     public void format_shouldFormat_withSuffix(){
-        String suffix = "PhD.";
-        String fName = "Mel";
-        String lName = "Johnson";
-        String expected = String.format("%s %s, %s",fName,lName, suffix);
-        assertEquals(expected,NameFactory.format(String.format("%s %s, %s",fName,lName,suffix)));
+        String fullName = "Mel B Johnson, PhD.";
+        String expected = "Mel B Johnson, PhD.";
+        assertEquals(expected,NameFactory.format(fullName));
     }
 
     @Test
     public void format_shouldFormat_withMiddleName(){
-        String mName = "B";
-        String fName = "Mel";
-        String lName = "Johnson";
-        String expected = String.format("%s %s, %s",fName, mName, lName);
-        assertEquals(expected,NameFactory.format(String.format("%s %s, %s",fName,mName, lName)));
+        String fullName = "Mel B Johnson";
+        String expected = "Mel B Johnson";
+        assertEquals(expected,NameFactory.format(fullName));
     }
 }

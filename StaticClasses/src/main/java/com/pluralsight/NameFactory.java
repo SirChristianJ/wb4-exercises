@@ -35,25 +35,23 @@ public class NameFactory {
 
     public static String format(String fullName){
         String[] splitFullName = fullName.split(" ");
+        String output = "";
+
         switch (splitFullName.length){
             case 2:
-                return format(splitFullName[0],splitFullName[1]);
+                output = format(splitFullName[0],splitFullName[1]);
+                break;
             case 3:
-                if (splitFullName[1].contains(","))
-                    return String.format("%s %s %s",splitFullName[0],splitFullName[1],splitFullName[2]);
-                else if(!splitFullName[1].contains(","))
-                    return String.format("%s %s %s",splitFullName[0],splitFullName[1],splitFullName[2]);
+                output = String.format("%s %s %s",splitFullName[0],splitFullName[1],splitFullName[2]);
                 break;
             case 4:
-                if (splitFullName[2].contains(","))
-                    return String.format("%s %s %s, %s",splitFullName[0],splitFullName[1],splitFullName[2], splitFullName[3]);
-                else if(!splitFullName[2].contains(","))
-                    return String.format("%s %s %s %s",splitFullName[0],splitFullName[1],splitFullName[2],splitFullName[3]);
+                output = String.format("%s %s %s %s",splitFullName[0],splitFullName[1],splitFullName[2],splitFullName[3]);
                 break;
             case 5:
-                return format(splitFullName[0],splitFullName[1],splitFullName[2],splitFullName[3],splitFullName[4]);
+                output = format(splitFullName[0],splitFullName[1],splitFullName[2],splitFullName[3],splitFullName[4]);
+                break;
         }
 
-        return String.format("%s %s %s %s, %s",splitFullName[0],splitFullName[1],splitFullName[2],splitFullName[3],splitFullName[4]);
+        return output;
     }
 }
