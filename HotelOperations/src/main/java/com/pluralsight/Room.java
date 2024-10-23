@@ -46,14 +46,16 @@ public class Room {
             System.out.println("Room is occupied");
     }
 
-    private void cleanRoom(){
+    public void cleanRoom(){
         System.out.println("Cleaning room..");
         dirty = false;
-        occupied = false;
+        System.out.println("Room cleaned.");
     }
 
     public void checkOut(){
-        System.out.println("Checked out");
-        cleanRoom();
+        System.out.println("Checked out, pending cleaning.");
+        dirty = true;
+        occupied = false;
+        //cleanRoom();
     }
 }

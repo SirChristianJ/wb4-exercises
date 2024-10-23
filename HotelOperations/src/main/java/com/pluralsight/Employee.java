@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -53,6 +55,29 @@ public class Employee {
 
     public double getHoursWorked() {
         return hoursWorked;
+    }
+    public double punchIn(double startTime){
+        return startTime;
+    }
+
+    public double punchOut(double endTime){
+        return endTime;
+    }
+
+    public void punchIn(){
+        LocalDateTime startTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+        String start = startTime.format(formatter);
+        Double punchedInTime = Double.parseDouble(start);
+        System.out.println("Punched in at: " + start);
+    }
+
+    public void punchOut(){
+        LocalDateTime endTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+        String end = endTime.format(formatter);
+        Double punchedOutTime = Double.parseDouble(end);
+        System.out.println("Punched in at: " + end);
     }
 
     public double punchTimeCard(double startTime, double endTime){
